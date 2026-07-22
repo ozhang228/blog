@@ -29,9 +29,14 @@ const posts = (await getCollection('blog')).sort(
 				padding: 0;
 			}
 			ul li {
-				box-shadow: var(--box-shadow);
+				box-shadow: 0 4px 6px rgba(var(--gray), 25%);
 				border-radius: 12px;
 				background: white;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			ul li:hover {
+				transform: translateY(-4px) scale(1.02);
+				box-shadow: 0 8px 12px rgba(var(--gray), 30%);
 			}
 			ul li a {
 				display: block;
@@ -53,10 +58,6 @@ const posts = (await getCollection('blog')).sort(
 			.date {
 				margin: 0;
 				color: rgb(var(--gray));
-			}
-			ul li a:hover .title,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
 			}
 			@media (max-width: 720px) {
 				main {
